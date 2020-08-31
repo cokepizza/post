@@ -164,6 +164,8 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 ----
 
 ### Google Console
+  -
+
 
 ### Mobile Friendly Test
 
