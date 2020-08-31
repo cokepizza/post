@@ -8,7 +8,6 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 - [Background](#Background)  
   - [What is a Search Engine Bot](#What-is-a-Search-Engine-Bot)
-  - [Operation process of Search Engine](#Operation-process-of-Search-Engine)
   - [From SSR to CSR](#From-SSR-to-CSR)
 - [Googlebot MythBusting](#Googlebot-MythBusting)  
   - [Googlebot doesn't understand modern Javascript](#Googlebot-doesn't-understand-modern-Javascript)
@@ -34,9 +33,15 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 ### What is a Search Engine Bot
 
+<div style='display: flex; align-items;'>
+  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 28" src="https://user-images.githubusercontent.com/56418546/91747353-fd299900-ebf8-11ea-85c4-bbec8ec27361.png">
+  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 39" src="https://user-images.githubusercontent.com/56418546/91747354-fe5ac600-ebf8-11ea-8ac9-0e6a7456e07a.png">
+</div>
+
 - 검색엔진봇이란 일종의 웹 로봇입니다.
 - 웹 로봇이란 것은 사람과의 상호작용이 없이 웹 트랜잭션(http get, etc.)을 자동으로 수행하는 봇을 의미합니다.
 - 그래서 검색엔진봇이 어떤 웹페이지에 진입하면, 링크에 있는 다른 웹페이지들을 수집해 Crawling Queue에 담는 것을 재귀적으로 반복합니다.
+- 일반적으로 검색엔진은 수집(크롤링) => 정제 => 인덱싱 => 질의의 프로세스를 가지고 있습니다.
 - 검색결과를 향상시키려면 처음 검색엔진봇이 시작하는 지점인 '루트집합'의 선정이 중요합니다.
   - 관심있는 모든 웹페이지를 가져올 있도록 충분히 다른 장소에 있는 URL을 선택합니다.
   - 크고 인기 있는 사이트를 선정해야 합니다.
@@ -52,22 +57,21 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
     - <https://www.kifrs.com/robots.txt>
   - sitemap.xml은 로봇에게 색인이 쉽도록 해당 웹사이트 내의 링크를 안내해줍니다.
     - <https://www.kifrs.com/sitemap.xml>
-
-<br />
-<br />
-
-### Operation process of Search Engine
+- 색인은 '풀 텍스트 색인'을 통해 이루어집니다. 문서별로 단어를 정리하는 것이 아닌, 단어를 기준으로 포함된 문서를 정리합니다.
 
 <br />
 
-<div style='display: flex'>
-  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 28" src="https://user-images.githubusercontent.com/56418546/91747353-fd299900-ebf8-11ea-85c4-bbec8ec27361.png">
-  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 39" src="https://user-images.githubusercontent.com/56418546/91747354-fe5ac600-ebf8-11ea-8ac9-0e6a7456e07a.png">
-</div>
+<img width="600" alt="link" src="https://user-images.githubusercontent.com/56418546/91764669-ae88f880-ec12-11ea-8faa-582661af0fa9.png">
 
-- 일반적으로 검색엔진은 수집(크롤링) => 정제 => 인덱싱 => 질의의 프로세스를 가지고 있습니다.
-- 인덱싱 원리
+출처: <https://www.youtube.com/watch?time_continue=241&v=tagJ0lm6CK8&feature=emb_logo>
 
+<br />
+
+- 사용자가 질의를 하게되면 검색어와 관련이 높은 웹페이지부터 우선적으로 노출되게 됩니다.
+  - 질의에 대응하기 위해서는 검색엔진이 동일한 주제에 대해서 순위를 매겨 검색 노출 순서를 정하는 '페이지 랭크'가 필요합니다.
+    - 가정1) 다른 웹사이트로부터 많은 링크를 받았다면 더 좋은 컨텐츠를 가질 확률이 높다.
+    - 가정2) 페이지 랭크가 높은 사이트가 링크해줬을 때가 페이지 랭크가 낮은 사이트의 링크해줬을 때 보다 더 좋은 컨텐츠를 가질 확률이 높다.
+- 일반적으로 각 검색엔진별 페이지를 어떻게 정제하고, 인덱싱하고, 랭킹을 매기는지에 대해서는 기밀이라 잘 알려져 있지 않습니다.
 
 <br />
 <br />
@@ -263,7 +267,9 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 ### Mobile Friendly Test
 
 - Google 검색결과를 유리하게 하기 위한 조건
-  - 로딩이 빠른 사이트
+  - 타이틀 및 메타태그(meta description, title)
+  - Semantic markup(Headings, Article, Section, Form elements, etc.)
+  - 로딩이 빠른 사이트(ssr > csr)
   - 보안 프로토콜 사용여부(https)
   - 모바일 친화적인 사이트(2015년 구글의 모바일 퍼스트 전략)
 - 그래서 해당 사이트가 모바일에서 제대로 디스플레이되는지 여부를 파악하고 개선해나가는 작업이 중요합니다.
@@ -291,3 +297,4 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 - Google web.dev live 2020 Debugging Javascript Seo Issues: <https://www.youtube.com/watch?v=himvKu12YCY&list=PLNYkxOF6rcIDC0-BiwSL52yQ0n9rNozaF&index=9&t=0s>
 - Google Web Master Series 1~8: <https://www.youtube.com/watch?v=LXF8bM4g-J4&list=PLKoqnv2vTMUPOalM1zuWDP9OQl851WMM9&index=1>
 - HTTP the definitive guide - Web Robot
+- 검색엔진 최적화(페이지랭크): <https://opentutorials.org/course/2039/10995>
