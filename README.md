@@ -15,15 +15,19 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
   - [It takes a long time to render pages](#It-takes-a-long-time-to-render-pages)
   - [JavaScript is bad for SEO](#JavaScript-is-bad-for-SEO)
 - [Debug tools for Search](#Debug-tools-for-Search)
-  - [Google Console](#Google-Console)
-- [SEO in React](#SEO-in-React)  
+  - [Search Console](#Search-Console)
+  - [Rich Results Test](#Rich-Results-Test)
+  - [Mobile Friendly Test](#Mobile-Friendly-Test)
+- [Debugging issues in the wild](#Debugging-issues-in-the-wild)
 - [Reference](#Reference)  
 
 ## Background
 
 ### What is a Search Engine
-  
-  검색엔진이란 일종의 웹 로봇입니다.
+
+- 검색엔진이란 일종의 웹 로봇입니다.
+- robots.txt
+- sitemap.xml
 
 ### Operation process of Search Engine
 
@@ -163,24 +167,86 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 ----
 
-### Google Console
-  -
+<br />
 
+### Search Console
+
+- 사용자가 Google 검색결과를 종합적으로 모니터링하고 관리하는 도구입니다.
+- 이곳에 등록을 안해도 Google 검색결과가 가능하지만, 등록을 하게되면 사이트 인지도를 향상시킬 수 있는 다양한 지표를 보여줍니다.
+- 그래서 본인의 도메인을 등록하고, Search Console로 사이트의 소유권을 확인받은 후 관리가 가능합니다.
+- 색인 생성 범위와 URL 검사를 통해 색인이 제대로 되어있는지 여부를 판단할 수 있습니다.
+- <https://chesssup.com>
+- <https://search.google.com/search-console?resource_id=https%3A%2F%2Fchesssup.com%2F&hl=ko>
+- <https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fchesssup.com&oq=site%3Ahttps%3A%2F%2Fchesssup.com&aqs=chrome.0.69i59j69i58j69i61.1670j0j7&sourceid=chrome&ie=UTF-8>
+
+<br />
+<br />
+
+### Rich Results Test
+
+- Structured Data가 잘 들어가 있는지를 파악할 수 있는 도구입니다.
+- Structured Data라는 것은 페이지에 관한 확실한 정보와 분류를 제공해주는 표준화된 양식입니다.
+- Data의 type마다 권장하는 속성들이 있는데 이에 대해 잘 정의해놓을수록 Google 검색결과에 더 유리합니다.
+- <https://www.google.com/search?q=pumpkin+pie+recipe&oq=pumpkin+pie+recipe&aqs=chrome..69i57j0l7.6469j0j7&sourceid=chrome&ie=UTF-8>
+- <https://developers.google.com/search/docs/data-types/recipe?hl=ko>
+- <https://search.google.com/test/rich-results?id=ULc6vfdNrC2oRglzRU8S7g>
+
+```js
+  <html>
+    <head>
+      <title>Party Coffee Cake</title>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "Recipe",
+        "name": "Party Coffee Cake",
+        "author": {
+          "@type": "Person",
+          "name": "Mary Stone"
+        },
+        "datePublished": "2018-03-10",
+        "description": "This coffee cake is awesome and perfect for parties.",
+        "prepTime": "PT20M"
+      }
+      </script>
+    </head>
+    <body>
+    <h2>Party coffee cake recipe</h2>
+    <p>
+      This coffee cake is awesome and perfect for parties.
+    </p>
+    </body>
+  </html>
+```
+
+<br />
+<br />
 
 ### Mobile Friendly Test
 
-### 
+- Google 검색결과를 유리하게 하기 위한 조건
+  - 로딩이 빠른 사이트
+  - 보안 프로토콜 사용여부(https)
+  - 모바일 친화적인 사이트(2015년 구글의 모바일 퍼스트 전략)
+- 그래서 해당 사이트가 모바일에서 제대로 디스플레이되는지 여부를 파악하고 개선해나가는 작업이 중요합니다.
+- <https://search.google.com/test/mobile-friendly?url=https%3A%2F%2Fchesssup.com%2F>
+- <https://search.google.com/test/mobile-friendly?url=https%3A%2F%2Fwww.wikipedia.org%2F>
+
 
 <br />
+<br />
+<br />
 
+## Debugging issues in the wild  
 
-## SEO in React
+- GoogleBot이 컨텐츠를 가져가는 것을 방해하는 요소
+  - robots.txt
+  - lazy loading 시에 scroll event  
+  - service worker (PWA)
 
-----
-
-* code splitting
-* hydrate
-
+<br />
+<br />
+<br />
 
 ## Reference
 
