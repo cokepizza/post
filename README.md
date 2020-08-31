@@ -7,7 +7,7 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 ## Table of contents
 
 - [Background](#Background)  
-  - [What is a Search Engine](#What-is-a-Search-Engine)
+  - [What is a Search Engine Bot](#What-is-a-Search-Engine-Bot)
   - [Operation process of Search Engine](#Operation-process-of-Search-Engine)
   - [From SSR to CSR](#From-SSR-to-CSR)
 - [Googlebot MythBusting](#Googlebot-MythBusting)  
@@ -21,15 +21,53 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 - [Debugging issues in the wild](#Debugging-issues-in-the-wild)
 - [Reference](#Reference)  
 
+<br />
+<br />
+<br />
+
 ## Background
 
-### What is a Search Engine
+----
 
-- 검색엔진이란 일종의 웹 로봇입니다.
-- robots.txt
-- sitemap.xml
+<br />
+<br />
+
+### What is a Search Engine Bot
+
+- 검색엔진봇이란 일종의 웹 로봇입니다.
+- 웹 로봇이란 것은 사람과의 상호작용이 없이 웹 트랜잭션(http get, etc.)을 자동으로 수행하는 봇을 의미합니다.
+- 그래서 검색엔진봇이 어떤 웹페이지에 진입하면, 링크에 있는 다른 웹페이지들을 수집해 Crawling Queue에 담는 것을 재귀적으로 반복합니다.
+- 검색결과를 향상시키려면 처음 검색엔진봇이 시작하는 지점인 '루트집합'의 선정이 중요합니다.
+  - 관심있는 모든 웹페이지를 가져올 있도록 충분히 다른 장소에 있는 URL을 선택합니다.
+  - 크고 인기 있는 사이트를 선정해야 합니다.
+  - 새로 만들어지거나 잘 알려지지 않은 사이트 목록을 선정해야 합니다.
+- 링크간 순환을 배제하여 중복된 크롤링을 방지합니다.
+  - Binary Search Tree, HashTable 등을 통해 웹사이트 방문 여부를 체크한다.
+  - BFS 알고리즘을 이용해 순환 가능성을 배제한다.
+- 로봇이 잘 동작하기 위해서는 지침, 안내가 필요합니다.
+  - robots.txt은 로봇이 부적절하게 동작하지 않기 위한 지침이자 에티켓입니다.
+    - 로봇을 식별하고(user agent), 접근(allow), 차단(disallow)을 지시합니다.
+    - <https://en.wikipedia.org/robots.txt>
+    - <https://naver.com/robots.txt>
+    - <https://www.kifrs.com/robots.txt>
+  - sitemap.xml은 로봇에게 색인이 쉽도록 해당 웹사이트 내의 링크를 안내해줍니다.
+    - <https://www.kifrs.com/sitemap.xml>
+
+<br />
+<br />
 
 ### Operation process of Search Engine
+
+<br />
+
+<div style='display: flex'>
+  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 28" src="https://user-images.githubusercontent.com/56418546/91747353-fd299900-ebf8-11ea-85c4-bbec8ec27361.png">
+  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 39" src="https://user-images.githubusercontent.com/56418546/91747354-fe5ac600-ebf8-11ea-8ac9-0e6a7456e07a.png">
+</div>
+
+- 일반적으로 검색엔진은 수집(크롤링) => 정제 => 인덱싱 => 질의의 프로세스를 가지고 있습니다.
+- 인덱싱 원리
+
 
 <br />
 <br />
@@ -252,5 +290,4 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 - Google web.dev live 2020 Debugging Javascript Seo Issues: <https://www.youtube.com/watch?v=himvKu12YCY&list=PLNYkxOF6rcIDC0-BiwSL52yQ0n9rNozaF&index=9&t=0s>
 - Google Web Master Series 1~8: <https://www.youtube.com/watch?v=LXF8bM4g-J4&list=PLKoqnv2vTMUPOalM1zuWDP9OQl851WMM9&index=1>
-
-----
+- HTTP the definitive guide - Web Robot
