@@ -1,6 +1,6 @@
 # SEO
 
-SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 정리합니다.
+검색엔진의 기본적인 동작과정과 배경, GoogleBot만의 특별한 동작과정, SEO 테스트 방법을 정리합니다.
 
 ----
 
@@ -33,10 +33,7 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 ### What is a Search Engine Bot
 
-<div style='display: flex; align-items;'>
-  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 28" src="https://user-images.githubusercontent.com/56418546/91747353-fd299900-ebf8-11ea-85c4-bbec8ec27361.png">
-  <img width="400" alt="스크린샷 2020-09-01 오전 2 14 39" src="https://user-images.githubusercontent.com/56418546/91747354-fe5ac600-ebf8-11ea-8ac9-0e6a7456e07a.png">
-</div>
+  <img width="800" alt="스크린샷 2020-09-01 오전 2 14 28" src="https://user-images.githubusercontent.com/56418546/91747353-fd299900-ebf8-11ea-85c4-bbec8ec27361.png">
 
 - 검색엔진봇이란 일종의 웹 로봇입니다.
 - 웹 로봇이란 것은 사람과의 상호작용이 없이 웹 트랜잭션(http get, etc.)을 자동으로 수행하는 봇을 의미합니다.
@@ -113,7 +110,7 @@ SEO의 배경과 GoogleBot의 동작원리, SEO 디버깅 테스트 방법을 �
 
 <br />
 
-<img width="600" alt="evergreen googlebot" src="https://user-images.githubusercontent.com/56418546/91687396-8fe71b00-eb9a-11ea-8c1e-09657be82b99.png">
+<img width="1000" alt="evergreen googlebot" src="https://user-images.githubusercontent.com/56418546/91687396-8fe71b00-eb9a-11ea-8c1e-09657be82b99.png">
 
 - 구글은 19년도에 이미 에버그린 구글봇을 출시했습니다. (2015년 크롬 41 기반 구글봇 => 2019년 에버그린 구글봇)
   - 에버그린이란 ongoing update를 의미합니다. 한번에 몰아서 업데이트가 이뤄지기 보다는 1~2주를 텀으로 지속적으로 업데이트가 이뤄집니다.
