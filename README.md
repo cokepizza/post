@@ -1,4 +1,4 @@
-# SEO
+# Debugging Javascript SEO issues
 
 검색엔진의 기본적인 동작과정과 배경, GoogleBot만의 특별한 동작과정, SEO 테스트 방법을 정리합니다.
 
@@ -38,7 +38,7 @@
 - 검색엔진봇이란 일종의 웹 로봇입니다.
 - 웹 로봇이란 것은 사람과의 상호작용이 없이 웹 트랜잭션(http get, etc.)을 자동으로 수행하는 봇을 의미합니다.
 - 그래서 검색엔진봇이 어떤 웹페이지에 진입하면, 링크에 있는 다른 웹페이지들을 수집해 Crawling Queue에 담는 것을 재귀적으로 반복합니다.
-- 일반적으로 검색엔진은 수집(크롤링) => 정제 => 인덱싱 => 질의의 프로세스를 가지고 있습니다.
+- 일반적으로 검색엔진은 수집(크롤링) => 정제 => 인덱싱 => 랭크 => 질의의 프로세스를 가지고 있습니다.
 - 검색결과를 향상시키려면 처음 검색엔진봇이 시작하는 지점인 '루트집합'의 선정이 중요합니다.
   - 관심있는 모든 웹페이지를 가져올 있도록 충분히 다른 장소에 있는 URL을 선택합니다.
   - 크고 인기 있는 사이트를 선정해야 합니다.
@@ -295,3 +295,7 @@
 - Google Web Master Series 1~8: <https://www.youtube.com/watch?v=LXF8bM4g-J4&list=PLKoqnv2vTMUPOalM1zuWDP9OQl851WMM9&index=1>
 - HTTP the definitive guide - Web Robot
 - 검색엔진 최적화(페이지랭크): <https://opentutorials.org/course/2039/10995>
+- Dynamic Rendering for Javascipt web apps: <https://www.youtube.com/watch?time_continue=1&v=CrzUP6MmBW4&feature=emb_logo>
+- How Google Search indexes Javascript sites: <https://www.youtube.com/watch?v=LXF8bM4g-J4&list=PLKoqnv2vTMUPOalM1zuWDP9OQl851WMM9>
+- Google Search and JavaScript Sites (Google I/O'19): <https://www.youtube.com/watch?v=Ey0N1Ry0BPM&feature=emb_logo>
+- Everything you need to know about Google's Evergreen Googlebot: <https://www.youtube.com/watch?time_continue=89&v=Wkc67ETypNo&feature=emb_logo>
