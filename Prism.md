@@ -6,7 +6,11 @@
 
 프리즘이란?
 
-- OpenAPI v2/v3를 기반으로 실제 API 서버처럼 동작하며, 테스트가 가능한 응답을 던져주는 Mock Server를 생성
+- Mocking
+  - OpenAPI v2/v3를 기반으로 실제 API 서버처럼 동작하며, 테스트가 가능한 응답을 던져주는 Mock Server를 생성
+- Validation Proxy
+  - Validation Proxy server로의 동작이 가능
+  - 사용자의 요청 혹은 서버의 응답이 문제가 있다면 로그를 남기거나, 취소 가능
 
 프리즘의 장점?
 
@@ -16,7 +20,7 @@
   - Jest가 programatic 한 유닛 테스트 툴이라면, Prism은 API 레벨에서 endpoint를 가지고 있는 서버로서 유닛 테스트가 가능
 - 서버에서 mock을 생성하는 장점
 
-프리즘의 실제 사례
+프리즘의 실제 사례 (mocking)
 
 - 프리즘 설치는 다양한 옵션이 있음
   - npm or yarn을 global 설치
@@ -32,5 +36,5 @@
 - webpack-dev-server를 프록시 서버로 하여 prism api server로부터 요청을 받아오는 방식
   - origin server와 api server가 동일 출처에 있기 때문에 api server에서 별도 cors 설정이 필요 없음
 
-- webpack proxy 설정, mock의 경우에는 로컬의 4010 prism 서버에게 요청. 서버간에는 cors 제약 없음
+- webpack proxy 설정, mock의 경우에는 로컬의 4010포트 prism 서버에게 요청. 서버간에는 cors 제약 없음
 ![webpack proxy 설정](https://user-images.githubusercontent.com/56418546/100433479-7f353b00-30de-11eb-950b-dc730b1b06a1.png)
